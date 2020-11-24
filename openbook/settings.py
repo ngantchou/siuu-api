@@ -134,6 +134,7 @@ INSTALLED_APPS = [
     'openbook_devices',
     'openbook_moderation',
     'openbook_translation',
+    'corsheaders',
 ]
 
 MODELTRANSLATION_FALLBACK_LANGUAGES = ('en',)
@@ -147,7 +148,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'openbook_common.middleware.TimezoneMiddleware'
+    'openbook_common.middleware.TimezoneMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'openbook.urls'
@@ -587,3 +589,10 @@ ONE_SIGNAL_API_KEY = os.environ.get('ONE_SIGNAL_API_KEY')
 # Peekalink
 
 PEEKALINK_API_KEY = os.environ.get('PEEKALINK_API_KEY', None)
+
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "http://161.35.161.138:80",
+    "http://localhost:80",
+    "http://127.0.0.1:80"
+]
