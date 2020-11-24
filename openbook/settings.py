@@ -593,6 +593,7 @@ PEEKALINK_API_KEY = os.environ.get('PEEKALINK_API_KEY', None)
 CORS_ALLOWED_ORIGINS = [
     "https://example.com",
     "http://161.35.161.138:80",
-    "http://localhost:80",
+    "http://localhost:3000",
     "http://127.0.0.1:80"
 ]
+CORS_ALLOW_ALL_ORIGINS = True
