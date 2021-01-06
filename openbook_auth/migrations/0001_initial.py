@@ -43,6 +43,7 @@ class Migration(migrations.Migration):
                 ('objects', django.contrib.auth.models.UserManager()),
             ],
         ),
+        migrations.AddField("User", "phone", models.CharField(max_length=20, blank=True, verbose_name='phone number')),
         migrations.CreateModel(
             name='UserProfile',
             fields=[
