@@ -8,7 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
+from openbook_common.utils.model_loaders import get_user_invite_model, get_badge_model
 from openbook_moderation.permissions import IsNotSuspended
 from openbook_common.utils.helpers import normalise_request_data
 from openbook_invitations.serializers import GetUserInviteSerializer, CreateUserInviteSerializer, \
@@ -24,17 +24,17 @@ logger = logging.getLogger(__name__)
 
 
 class UserInvites(APIView):
-    permission_classes = (IsAuthenticated, IsNotSuspended)
+    permission_classes = ()
 
     def put(self, request):
         serializer = CreateUserInviteSerializer(data=request.data, context={"request": request})
         serializer.is_valid(raise_exception=True)
         data = serializer.validated_data
         nickname = data.get('nickname')
-        user = request.user
+        UserInvite = get_user_invite_model()
 
         with transaction.atomic():
-            invite = user.create_invite(nickname=nickname)
+            invite = UserInvite.create_invite(nickname=nickname)
 
         response_serializer = GetUserInviteSerializer(invite, context={"request": request})
 
