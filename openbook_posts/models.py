@@ -1307,6 +1307,18 @@ class PostLink(models.Model):
             self.has_preview = False
 
         self.save()
+class PostMetaText(models.Model):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='image_path')
+    is_color = models.BooleanField(default=False)
+    is_png = models.BooleanField(default=False)
+    is_svg = models.BooleanField(default=False)
+    is_font_color_white = models.BooleanField(default=False)
+    image_path = models.BooleanField(default=False)
+
+    @classmethod
+    def create_meta_text(cls, is_color,is_png,is_svg,is_font_color_white,image_path, post_id):
+        return cls.objects.create(is_color=is_color,is_png=is_png,is_svg=is_svg,is_font_color_white=is_font_color_white,image_path=image_path,post_id=post_id)
 
 class PostUserMention(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='post_mentions')
