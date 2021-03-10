@@ -183,10 +183,10 @@ def check_user_visibility_is_not_private(target_user):
         )
 
 
-def check_user_visibility_is_not_okuna(target_user):
-    if target_user.has_visibility_okuna():
+def check_user_visibility_is_not_siuu(target_user):
+    if target_user.has_visibility_siuu():
         raise ValidationError(
-            _('This user content is restricted to Okuna members only.'),
+            _('This user content is restricted to Siuu members only.'),
         )
 
 
@@ -209,7 +209,7 @@ def check_target_user_is_visibile_for_user(user, target_user):
 
 def check_can_get_unauthenticated_posts_for_user(user):
     check_user_visibility_is_not_private(target_user=user)
-    check_user_visibility_is_not_okuna(target_user=user)
+    check_user_visibility_is_not_siuu(target_user=user)
 
 
 def check_is_not_following_user_with_id(user, user_id):

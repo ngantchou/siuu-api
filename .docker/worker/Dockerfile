@@ -19,6 +19,6 @@ COPY requirements.txt /requirements.txt
 
 RUN pip install -r /requirements.txt
 
-VOLUME ["/opt/okuna-api"]
+VOLUME ["/opt/siuu-api"]
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

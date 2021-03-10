@@ -1,6 +1,6 @@
-<img alt="Okuna logo" src="https://i.snag.gy/FAgp8K.jpg" width="200">
+<img alt="Siuu logo" src="https://i.snag.gy/FAgp8K.jpg" width="200">
 
-The change log for the API server for Okuna.
+The change log for the API server for Siuu.
 
 ## Table of contents
 
@@ -14,7 +14,7 @@ The change log for the API server for Okuna.
 
 ## Release 0.0.59
 
-- Add okuna-cli for better dev experience
+- Add siuu-cli for better dev experience
 - Add hashtags detection and APIs
 - Add suggested communities API's
 - Add register token verify API's

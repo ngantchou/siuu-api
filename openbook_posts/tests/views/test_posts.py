@@ -90,7 +90,7 @@ class PostsAPITests(OpenbookAPITestCase):
 
         auth_token = user.auth_token.key
 
-        post_text = 'https://www.okuna.io'
+        post_text = 'https://www.siuu.io'
 
         headers = {'HTTP_AUTHORIZATION': 'Token %s' % auth_token}
 
@@ -1596,9 +1596,9 @@ class PostsAPITests(OpenbookAPITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_can_get_public_posts_for_okuna_visibility_user_authenticated(self):
+    def test_can_get_public_posts_for_siuu_visibility_user_authenticated(self):
         """
-        should be able to retrieve the public posts of an specific okuna visibility user
+        should be able to retrieve the public posts of an specific siuu visibility user
         being authenticated and return 400
         """
 
@@ -1634,9 +1634,9 @@ class PostsAPITests(OpenbookAPITestCase):
         for public_post_id in public_posts_ids:
             self.assertIn(public_post_id, response_posts_ids)
 
-    def test_cant_get_public_posts_for_okuna_visibility_user_unauthenticated(self):
+    def test_cant_get_public_posts_for_siuu_visibility_user_unauthenticated(self):
         """
-        should not be able to retrieve the public posts of an specific okuna visibility user
+        should not be able to retrieve the public posts of an specific siuu visibility user
         being unauthenticated and return 400
         """
         user = make_user(visibility=User.VISIBILITY_TYPE_OKUNA)

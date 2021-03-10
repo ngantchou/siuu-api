@@ -97,7 +97,7 @@ class UserInvite(models.Model):
 
     def send_invite_email(self):
         if self.invited_by:
-            mail_subject = _('You\'ve been invited to join Okuna (formerly Openbook)')
+            mail_subject = _('You\'ve been invited to join Siuu (formerly Openbook)')
             text_message_content = render_to_string('openbook_invitations/email/user_invite.txt', {
                 'name': self.name,
                 'invited_by_name': self.invited_by.profile.name,
@@ -109,7 +109,7 @@ class UserInvite(models.Model):
                 'invite_link': self._generate_one_time_link()
             })
         else:
-            mail_subject = _('You\'ve been invited to join Okuna (formerly Openbook)')
+            mail_subject = _('You\'ve been invited to join Siuu (formerly Openbook)')
             text_message_content = render_to_string('openbook_invitations/email/backer_onboard.txt', {
                 'name': self.name,
                 'invite_link': self._generate_one_time_link()
@@ -129,7 +129,7 @@ class UserInvite(models.Model):
         # Hack: Since username is unique, we populate name field with username during
         # parsing of this csv so we can import all records.
         # This is a one time operation before launch.
-        mail_subject = _('Action Required: Choose an alternate username for Okuna')
+        mail_subject = _('Action Required: Choose an alternate username for Siuu')
         text_message_content = render_to_string('openbook_invitations/email/backer_alternate_username.txt', {
             'username': self.name,
             'invite_link': 'https://openbook.typeform.com/to/MSbtq9'

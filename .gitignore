@@ -19,5 +19,5 @@ docker-compose.override.yml
 /supervisord.pid
 /supervisord.log
 /.docker-cache
-/.okuna-cli.json
+/.siuu-cli.json
 /.docker-compose.env

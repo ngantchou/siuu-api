@@ -372,7 +372,7 @@ def get_test_video():
 
 def get_post_links():
     return [
-        'https://www.okuna.io/',
+        'https://www.siuu.io/',
         'www.techcrunch.com/',
         'https://bbc.co.uk/',
         'google.com?filter=evil/',

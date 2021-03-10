@@ -75,7 +75,7 @@ class User(AbstractUser):
     VISIBILITY_TYPES = (
         (VISIBILITY_TYPE_PUBLIC, 'Public'),
         (VISIBILITY_TYPE_PRIVATE, 'Private'),
-        (VISIBILITY_TYPE_OKUNA, 'Okuna'),
+        (VISIBILITY_TYPE_OKUNA, 'Siuu'),
     )
 
     visibility = models.CharField(
@@ -548,11 +548,11 @@ class User(AbstractUser):
 
         if visibility:
             if self.visibility == User.VISIBILITY_TYPE_PRIVATE and visibility != User.VISIBILITY_TYPE_PRIVATE:
-                # We are changing from private to public/okuna visibility which does not use follow requests
+                # We are changing from private to public/siuu visibility which does not use follow requests
                 self.delete_received_follow_requests()
 
             if self.visibility != User.VISIBILITY_TYPE_PRIVATE and visibility == User.VISIBILITY_TYPE_PRIVATE:
-                # We are changing from public/okuna to private, we need to remove all connection requests.
+                # We are changing from public/siuu to private, we need to remove all connection requests.
                 self.delete_all_pending_connection_requests()
 
             self.visibility = visibility
@@ -921,7 +921,7 @@ class User(AbstractUser):
     def has_visibility_private(self):
         return self.visibility == User.VISIBILITY_TYPE_PRIVATE
 
-    def has_visibility_okuna(self):
+    def has_visibility_siuu(self):
         return self.visibility == User.VISIBILITY_TYPE_OKUNA
 
     def has_approved_follow_request_from_user(self, user):
@@ -3416,7 +3416,7 @@ class User(AbstractUser):
         return '{0}/api/auth/password/verify?token={1}'.format(settings.EMAIL_HOST, token)
 
     def _send_password_reset_email_with_token(self, password_reset_token):
-        mail_subject = _('Reset your password for Okuna')
+        mail_subject = _('Reset your password for Siuu')
         text_content = render_to_string('openbook_auth/email/reset_password.txt', {
             'name': self.profile.name,
             'username': self.username,

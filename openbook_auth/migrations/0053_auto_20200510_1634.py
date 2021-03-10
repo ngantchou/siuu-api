@@ -23,6 +23,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='visibility',
-            field=models.CharField(choices=[('P', 'Public'), ('T', 'Private'), ('O', 'Okuna')], default='O', editable=False, max_length=2),
+            field=models.CharField(choices=[('P', 'Public'), ('T', 'Private'), ('O', 'Siuu')], default='O', editable=False, max_length=2),
         ),
     ]

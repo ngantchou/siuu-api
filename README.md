@@ -12,8 +12,8 @@
     + [Git commit message conventions](#git-commit-message-conventions)
 - [Getting started](#getting-started)
   * [Clone the repository](#clone-the-repository)
-  * [Meet the Okuna CLI](#meet-the-okuna-cli)
-  * [Okuna CLI Operational Modes](#okuna-cli-operational-modes)
+  * [Meet the Siuu CLI](#meet-the-siuu-cli)
+  * [Siuu CLI Operational Modes](#siuu-cli-operational-modes)
   * [Full mode](#full-mode)
     + [Installation](#installation)
     + [Available commands](#available-commands)
@@ -24,11 +24,11 @@
     + [Available commands](#available-commands-1)
       - [up-services-only](#up-services-only)
       - [down-services-only](#down-services-only)
-    + [Running the Okuna API server locally](#running-the-okuna-api-server-locally)
+    + [Running the Siuu API server locally](#running-the-siuu-api-server-locally)
   * [Available test data](#available-test-data)
-  * [Other Okuna CLI commands](#other-okuna-cli-commands)
+  * [Other Siuu CLI commands](#other-siuu-cli-commands)
     + [clean](#clean)
-  * [Okuna CLI behind the scenes](#okuna-cli-behind-the-scenes)
+  * [Siuu CLI behind the scenes](#siuu-cli-behind-the-scenes)
     + [docker-compose](#docker-compose)
     + [Environment files](#environment-files)
 - [Available Django commands](#available-django-commands)
@@ -83,22 +83,22 @@ Examples of contributions we love include:
 
 #### Code of Conduct
 
-Please read and follow our [Code of Conduct](https://github.com/OkunaOrg/okuna-api/blob/master/CODE_OF_CONDUCT.md).
+Please read and follow our [Code of Conduct](https://github.com/SiuuOrg/siuu-api/blob/master/CODE_OF_CONDUCT.md).
 
 #### License
 
 Every contribution accepted is licensed under [AGPL v3.0](http://www.gnu.org/licenses/agpl-3.0.html) or any later version. 
 You must be careful to not include any code that can not be licensed under this license.
 
-Please read carefully [our license](https://github.com/OkunaOrg/okuna-api/blob/master/LICENSE.txt) and ask us if you have any questions.
+Please read carefully [our license](https://github.com/SiuuOrg/siuu-api/blob/master/LICENSE.txt) and ask us if you have any questions.
 
 #### Responsible disclosure
 
-Cyber-hero? Check out our [Vulnerability Disclosure page](https://www.okuna.io/en/vulnerability-report).
+Cyber-hero? Check out our [Vulnerability Disclosure page](https://www.siuu.io/en/vulnerability-report).
 
 #### Other issues
 
-We're available almost 24/7 in the Okuna slack channel. [Join us!](https://join.slack.com/t/okunaorg/shared_invite/enQtNDI2NjI3MDM0MzA2LTYwM2E1Y2NhYWRmNTMzZjFhYWZlYmM2YTQ0MWEwYjYyMzcxMGI0MTFhNTIwYjU2ZDI1YjllYzlhOWZjZDc4ZWY)
+We're available almost 24/7 in the Siuu slack channel. [Join us!](https://join.slack.com/t/siuuorg/shared_invite/enQtNDI2NjI3MDM0MzA2LTYwM2E1Y2NhYWRmNTMzZjFhYWZlYmM2YTQ0MWEwYjYyMzcxMGI0MTFhNTIwYjU2ZDI1YjllYzlhOWZjZDc4ZWY)
 
 #### Git commit message conventions
 
@@ -115,19 +115,19 @@ If you're using git in your command line, you can download the handy tool [gitmo
 Run the following in your command line
 
 ```bash
-git clone git@github.com:OkunaOrg/okuna-api.git && cd okuna-api
+git clone git@github.com:SiuuOrg/siuu-api.git && cd siuu-api
 ```
 
-### Meet the Okuna CLI
+### Meet the Siuu CLI
 
-The Okuna CLI is built to run a development instance of Okuna loaded with some test data, with a single command.
+The Siuu CLI is built to run a development instance of Siuu loaded with some test data, with a single command.
 
-### Okuna CLI Operational Modes
+### Siuu CLI Operational Modes
 
 You can use the CLI in two modes.
 
-1. [Full mode](#full-mode) - **Best for Okuna mobile/web app development**
-2. [Services-only mode](#services-only-mode) - **Best for Okuna API development**
+1. [Full mode](#full-mode) - **Best for Siuu mobile/web app development**
+2. [Services-only mode](#services-only-mode) - **Best for Siuu API development**
 
 Depending on the kind of development you would like to do, follow the instructions below for your chosen mode. 
 
@@ -135,7 +135,7 @@ Depending on the kind of development you would like to do, follow the instructio
 
 **Best for Mobile/web app development**
 
-This mode brings a whole Okuna instance up, ready to use with a local Okuna mobile/web app. 
+This mode brings a whole Siuu instance up, ready to use with a local Siuu mobile/web app. 
 
 #### Installation
 
@@ -144,7 +144,7 @@ Make sure the following are installed
 * [Python 3.5+](https://realpython.com/installing-python/)
 * [docker-compose](https://docs.docker.com/compose/install/)
 
-Install the Okuna CLI python packages
+Install the Siuu CLI python packages
 
 ```bash
 pip install -r requirements-cli-only.txt
@@ -154,35 +154,35 @@ pip install -r requirements-cli-only.txt
 
 ##### up-full
 
-**Starts Okuna**
+**Starts Siuu**
 
 Run the following in your terminal
 
 ```bash
-python okuna-cli.py up-full
+python siuu-cli.py up-full
 ```
 
-🥳 Congrats, you should now have both the whole of Okuna running on port **80**.
+🥳 Congrats, you should now have both the whole of Siuu running on port **80**.
 
 ##### down-full
 
-**Shuts Okuna down**
+**Shuts Siuu down**
 
-When existing the command that starts Okuna by pressing CTRL + C / CMD + C, Okuna will also be stopped.
+When existing the command that starts Siuu by pressing CTRL + C / CMD + C, Siuu will also be stopped.
 
-If the process was abruptly terminated and Okuna is still running in the background you can also run
+If the process was abruptly terminated and Siuu is still running in the background you can also run
 
 ```bash
-python okuna-cli.py down-full
+python siuu-cli.py down-full
 ``` 
 
 ### Services-only mode
 
 **Best for API development**
 
-The Okuna services are a SQL server, a Redis server, a job scheduler server and a job worker server.
+The Siuu services are a SQL server, a Redis server, a job scheduler server and a job worker server.
 
-This mode brings these services up but **not** the Okuna API itself, 
+This mode brings these services up but **not** the Siuu API itself, 
 you are to run the API locally instead for a better development experience.
 
 #### Installation
@@ -192,7 +192,7 @@ Make sure the following are installed
 * [Python 3.5+](https://realpython.com/installing-python/)
 * [docker-compose](https://docs.docker.com/compose/install/)
 
-Install the Okuna python packages
+Install the Siuu python packages
 
 ```bash
 pip install -r requirements.txt
@@ -208,29 +208,29 @@ chmod ./utils/scripts/bootstrap_development_data.sh +x
 
 ##### up-services-only
 
-**Starts the Okuna services**
+**Starts the Siuu services**
 
 Run the following in your terminal
 
 ```bash
-python okuna-cli.py up-services-only
+python siuu-cli.py up-services-only
 ```
 
 ##### down-services-only
 
-**Stops the Okuna services**
+**Stops the Siuu services**
 
-When existing the command that starts Okuna by pressing CTRL + C / CMD + C, Okuna will also be stopped.
+When existing the command that starts Siuu by pressing CTRL + C / CMD + C, Siuu will also be stopped.
 
-If the process was abruptly terminated and Okuna is still running in the background you can also run
+If the process was abruptly terminated and Siuu is still running in the background you can also run
 
 ```bash
-python okuna-cli.py down-services-only
+python siuu-cli.py down-services-only
 ``` 
 
-#### Running the Okuna API server locally
+#### Running the Siuu API server locally
 
-Once the Okuna services are up (using the up-services-only command), start the Okuna API locally by running
+Once the Siuu services are up (using the up-services-only command), start the Siuu API locally by running
 
 ```bash
 python manage.py runserver
@@ -245,11 +245,11 @@ on your mobile device connected to the same network, run the following instead.
 python manage.py runserver 0.0.0.0:8000
 ```
 
-🥳 Congrats, you should now have both the Okuna services and the Okuna API running in sync.
+🥳 Congrats, you should now have both the Siuu services and the Siuu API running in sync.
 
 ### Available test data
 
-Within the provisioned Okuna development instance, you will find some test accounts and respective posts/communities.
+Within the provisioned Siuu development instance, you will find some test accounts and respective posts/communities.
 
 The credentials for these accounts are the following.
 
@@ -269,45 +269,45 @@ username:miguel
 password:changeme123!
 ````
 
-### Other Okuna CLI commands
+### Other Siuu CLI commands
 
 #### clean
 
-** Cleans everything related to the Okuna CLI**
+** Cleans everything related to the Siuu CLI**
 
 This will dispose of the employed database and generated config files.
 
-Use this if you want to get a fresh version of Okuna next time you use the Okuna CLI `up` commands.
+Use this if you want to get a fresh version of Siuu next time you use the Siuu CLI `up` commands.
 
 ```bash
-python okuna-cli.py clean
+python siuu-cli.py clean
 ``` 
  
-### Okuna CLI behind the scenes
+### Siuu CLI behind the scenes
 
-This section will try to demistify what the Okuna CLI does.
+This section will try to demistify what the Siuu CLI does.
 
 #### docker-compose
 
-Behind the scenes, the Okuna CLI uses [docker-compose](https://docs.docker.com/compose/) to spawn
+Behind the scenes, the Siuu CLI uses [docker-compose](https://docs.docker.com/compose/) to spawn
 and coordinate the following docker services.
 
-* **webserver** - A server running the Okuna API
+* **webserver** - A server running the Siuu API
 * **db** - A server with a MariaDB database
 * **redis** - A server with a Redis database
-* **scheduler** - A server responsible for running the scheduled Okuna jobs such as curating Explore/Top posts.
-* **worker** - A server responsible for processing the Okuna jobs such as publishing a post or curating posts.
+* **scheduler** - A server responsible for running the scheduled Siuu jobs such as curating Explore/Top posts.
+* **worker** - A server responsible for processing the Siuu jobs such as publishing a post or curating posts.
 
 On services-only mode, the webserver is not spawned.
 
 #### Environment files
 
-When starting okuna-cli for the first time, 3 files will be generated
+When starting siuu-cli for the first time, 3 files will be generated
 
-* **.okuna-cli.json** - Contains a flag indicating whether the Okuna instance was bootstrapped and the secret keys employed
+* **.siuu-cli.json** - Contains a flag indicating whether the Siuu instance was bootstrapped and the secret keys employed
     to kickstart all other services
-* **.env** - The environment file used when running the Okuna CLI in services-only mode.
-* **.docker-compose.env** - The environment file used in all Okuna docker compose services
+* **.env** - The environment file used when running the Siuu CLI in services-only mode.
+* **.docker-compose.env** - The environment file used in all Siuu docker compose services
 
 
 ## Available Django commands
@@ -320,7 +320,7 @@ If running the API locally you can execute them as
 python manage.py $command
 ```
 
-If running the API with the Okuna CLI full mode, you can execute them by connecting to the webserver
+If running the API with the Siuu CLI full mode, you can execute them by connecting to the webserver
 machine by running
 
 ```bash
@@ -507,7 +507,7 @@ source strings and a place to enter the translation strings. It doesnt overwrite
 msgid "The list does not exist."     <- english translations  
 msgstr "Die Liste ist nicht vorhanden."   <-- this will be empty for new strings
 ```
-5. Upload this `django.po` file to https://crowdin.com/project/okuna/settings#files by pressing `Update` next to the existing `django.po` file.
+5. Upload this `django.po` file to https://crowdin.com/project/siuu/settings#files by pressing `Update` next to the existing `django.po` file.
 6. Once all language volunteers have translated the new strings, download all the `django.po` files for each locale and 
 put them in their respective folders.
 7. Run `./manage.py compilemessages` to auto-generate `django.mo` files. 

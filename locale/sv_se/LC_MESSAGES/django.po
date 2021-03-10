@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: okuna\n"
+"Project-Id-Version: siuu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-09 17:02+0100\n"
 "PO-Revision-Date: 2019-12-09 16:20\n"
@@ -12,9 +12,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
-"X-Crowdin-Project: okuna\n"
+"X-Crowdin-Project: siuu\n"
 "X-Crowdin-Language: sv-SE\n"
-"X-Crowdin-File: /okuna-api/django.po\n"
+"X-Crowdin-File: /siuu-api/django.po\n"
 
 #: openbook/settings.py:415
 msgid "Spanish"
@@ -742,8 +742,8 @@ msgid "No data to update the connection with."
 msgstr "Ingen data att uppdatera kontakten med."
 
 #: openbook_auth/models.py:3213
-msgid "Reset your password for Okuna"
-msgstr "Återställ ditt lösenord för Okuna"
+msgid "Reset your password for Siuu"
+msgstr "Återställ ditt lösenord för Siuu"
 
 #: openbook_auth/models.py:3634 openbook_categories/models.py:15
 #: openbook_circles/models.py:29 openbook_common/models.py:101
@@ -896,7 +896,7 @@ msgstr "Vänligen specificera e-postadress eller lösenord att uppdatera"
 
 #: openbook_auth/views/authenticated_user/views.py:172
 msgid "Confirm your email for Openbook"
-msgstr "Bekräfta din e-postadress för Okuna"
+msgstr "Bekräfta din e-postadress för Siuu"
 
 #: openbook_auth/views/authenticated_user/views.py:204
 msgid "Guidelines successfully accepted"
@@ -1394,12 +1394,12 @@ msgid "This invite has already been used."
 msgstr "Den här inbjudan har redan använts."
 
 #: openbook_invitations/models.py:100 openbook_invitations/models.py:112
-msgid "You've been invited to join Okuna (formerly Openbook)"
-msgstr "Du har blivit inbjuden till Okuna (tidigare Openbook)"
+msgid "You've been invited to join Siuu (formerly Openbook)"
+msgstr "Du har blivit inbjuden till Siuu (tidigare Openbook)"
 
 #: openbook_invitations/models.py:132
-msgid "Action Required: Choose an alternate username for Okuna"
-msgstr "Handling krävs: Välj ett alternativt användarnamn för Okuna"
+msgid "Action Required: Choose an alternate username for Siuu"
+msgstr "Handling krävs: Välj ett alternativt användarnamn för Siuu"
 
 #: openbook_invitations/validators.py:10
 msgid "The invite does not exist."

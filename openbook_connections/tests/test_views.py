@@ -278,9 +278,9 @@ class ConnectAPITests(OpenbookAPITestCase):
 
         self.assertTrue(user_to_connect.is_connected_with_user_with_id(user_id=user.pk))
 
-    def test_can_connect_with_okuna_visibility_without_previously_following(self):
+    def test_can_connect_with_siuu_visibility_without_previously_following(self):
         """
-        should be able to connect with a okuna visibility without having previously followed the person and return 400
+        should be able to connect with a siuu visibility without having previously followed the person and return 400
         """
         user = make_user()
         headers = make_authentication_headers_for_user(user)

@@ -7,8 +7,8 @@ services:
     ports:
       - 6380:6379
     networks:
-      okuna:
-        ipv4_address: 172.16.16.5
+      siuu:
+        ipv4_address: 172.27.64.5
     env_file:
       - .docker-compose.env
     volumes:
@@ -18,8 +18,8 @@ volumes:
   redisdb:
 
 networks:
-  okuna:
+  siuu:
     ipam:
       driver: default
       config:
-        - subnet: "172.16.16.0/16"
+        - subnet: "172.27.64.0/24"

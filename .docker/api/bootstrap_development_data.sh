@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eo pipefail
 
-cd /opt/okuna-api
+cd /opt/siuu-api
 
 echo "🗑 Clearing existing data"
 python manage.py reset_db --noinput

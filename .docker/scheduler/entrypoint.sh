@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eo pipefail
 
-cd /opt/okuna-api
+cd /opt/siuu-api
 
 /wait-for-it.sh $RDS_HOSTNAME:$RDS_PORT -t 60
 

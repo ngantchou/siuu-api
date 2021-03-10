@@ -21,7 +21,7 @@ COPY requirements.txt /requirements.txt
 
 RUN pip install -r /requirements.txt
 
-VOLUME ["/opt/okuna-api"]
+VOLUME ["/opt/siuu-api"]
 
 EXPOSE 80
 

@@ -113,9 +113,9 @@ class ProxyDomainCheckAPITests(OpenbookAPITestCase):
         """
         user = make_user()
         headers = make_authentication_headers_for_user(user)
-        request_url = 'www.okuna.io'
+        request_url = 'www.siuu.io'
         url = self._get_url()
-        make_proxy_blacklisted_domain(domain='okuna.io')
+        make_proxy_blacklisted_domain(domain='siuu.io')
 
         response = self.client.get(url, {'url': request_url}, **headers)
 
