@@ -1,0 +1,103 @@
+version: '3'
+
+services:
+  webserver:
+    container_name: siuu-api
+    build:
+      dockerfile: Dockerfile
+      context: ./.docker/api
+    privileged: true
+    extra_hosts:
+      - db.siuu:172.27.64.4
+      - redis.siuu:172.27.64.5
+    volumes:
+      - ./:/opt/siuu-api
+      - ./.docker-cache/pip:/root/.cache/pip
+    ports:
+      - 80:80
+    working_dir: /opt/siuu-api
+    networks:
+      siuu:
+        ipv4_address: 172.27.64.10
+    depends_on:
+      - db
+      - redis
+    env_file:
+      - .docker-compose.env
+  worker:
+    container_name: siuu-worker
+    build:
+      dockerfile: Dockerfile
+      context: ./.docker/worker
+    privileged: true
+    extra_hosts:
+      - db.siuu:172.27.64.4
+      - redis.siuu:172.27.64.5
+    volumes:
+      - ./:/opt/siuu-api
+      - ./.docker-cache/pip:/root/.cache/pip
+    working_dir: /opt/siuu-api
+    networks:
+      siuu:
+        ipv4_address: 172.27.64.2
+    depends_on:
+      - webserver
+    env_file:
+      - .docker-compose.env
+  scheduler:
+    container_name: siuu-scheduler
+    build:
+      dockerfile: Dockerfile
+      context: ./.docker/scheduler
+    privileged: true
+    extra_hosts:
+      - db.siuu:172.27.64.4
+      - redis.siuu:172.27.64.5
+    volumes:
+      - ./:/opt/siuu-api
+      - ./.docker-cache/pip:/root/.cache/pip
+    working_dir: /opt/siuu-api
+    networks:
+      siuu:
+        ipv4_address: 172.27.64.3
+    depends_on:
+      - webserver
+    env_file:
+      - .docker-compose.env
+  db:
+    image: mariadb:10.4.5
+    hostname: db.siuu
+    volumes:
+      - mariadb:/var/lib/mysql
+    ports:
+      - 3306
+    privileged: false
+    networks:
+      siuu:
+        ipv4_address: 172.27.64.4
+    command: --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    env_file:
+      - .docker-compose.env
+  redis:
+    image: bitnami/redis:latest
+    privileged: false
+    ports:
+      - 6379
+    networks:
+      siuu:
+        ipv4_address: 172.27.64.5
+    env_file:
+      - .docker-compose.env
+    volumes:
+      - redisdb:/bitnami/redis/data
+
+volumes:
+  mariadb:
+  redisdb:
+
+networks:
+  siuu:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.27.64.0/24"
